@@ -22,6 +22,7 @@ import {authInterceptorProviders} from "./helper/auth.interceptor";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    // Toast Service //
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
@@ -31,9 +32,12 @@ import {authInterceptorProviders} from "./helper/auth.interceptor";
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    // Social Login Service
     SocialLoginModule
   ],
-  providers: [authInterceptorProviders,
+  providers: [
+    // provider service TanTN//
+    authInterceptorProviders,
     CookieService,
     {
       provide: 'SocialAuthServiceConfig',
