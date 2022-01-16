@@ -9,7 +9,10 @@ import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUse
 export class LoginComponent implements OnInit {
   public user: SocialUser = new SocialUser;
 
-  constructor(private authService: SocialAuthService) {}
+  constructor(private authService: SocialAuthService
+  ) {
+
+  }
 
   public signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);

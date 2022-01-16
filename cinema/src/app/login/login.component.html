@@ -192,3 +192,9 @@
 <!--statusChangeCallback(response);-->
 <!--});-->
 <!--}-->
+<button (click)="signOut()">Sign Out</button>
+<div *ngIf="user">
+  <img src="{{user.photoUrl}}" alt="">
+  <h4>{{user.name}}</h4>
+  <h4>{{user.email}}</h4>
+</div>
