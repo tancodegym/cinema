@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ToastrModule} from "ngx-toastr";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import {
   FacebookLoginProvider,
   GoogleLoginProvider,
   SocialAuthServiceConfig,
   SocialLoginModule
-} from "angularx-social-login";
-import {authInterceptorProviders} from "./helper/auth.interceptor";
+} from 'angularx-social-login';
+import {authInterceptorProviders} from './helper/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent
@@ -47,9 +47,9 @@ import {authInterceptorProviders} from "./helper/auth.interceptor";
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              //http
+              // http
               // '226079829493-lntk2o7i994f0t6d3hq9utrlgetsksaj.apps.googleusercontent.com'
-              //https
+              // http
               '226079829493-dgfr94u8d6j7k8rks4js8b470e1402au.apps.googleusercontent.com'
             )
           },

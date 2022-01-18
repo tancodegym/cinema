@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cinema"
+    }
+  },
+  "defaultProject": "cinema",
+  "cli": {
+    "analytics": "1cead87f-90f2-4727-ab0b-4abbbcc7b895"
+  }
 }

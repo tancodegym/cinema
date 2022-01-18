@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-2"></div>
+    <div class="col-xl-8" style="border: 1px hidden; height: 400px">
+      <h2 class="text-center">Đặt vé</h2>
+      <form [formGroup]="movieSelectForm">
+        <div class="row">
+          <div class="col-xl-4">
+            <select class="custom-select form-control" aria-describedby="movieError" formControlName="movie" [compareWith]="compareMovie">
+              <option selected>CHỌN PHIM</option>
+              <option *ngFor="let movie of movieList" [ngValue]="movie.id">{{movie.name}}</option>
+            </select>
+            <div id="movieError" class="form-text text-danger"
+                 *ngIf="!movie.valid && (movie.dirty || movie.touched)">
+              <div [hidden]="!movie.errors.required">
+                Vui lòng chọn phim.
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4">
+            <select class="custom-select" aria-describedby="dayShowError" formControlName="dayShow">
+              <option selected>CHỌN NGÀY CHIẾU</option>
+              <option *ngFor="let dayShow of dayShowList" [ngValue]="dayShow">{{dayShow}}</option>
+            </select>
+            <div id="dayShowError" class="form-text text-danger"
+                 *ngIf="!dayShow.valid && (dayShow.dirty || dayShow.touched)">
+              <div [hidden]="!dayShow.errors.required">
+                Vui lòng chọn ngày chiếu.
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4">
+            <select class="custom-select" aria-describedby="hourShowError" formControlName="hourShow">
+              <option selected>CHỌN LỊCH CHIẾU</option>
+              <option *ngFor="let hourShow of hourShowList" [ngValue]="hourShow">{{hourShow}}</option>
+            </select>
+            <div id="hourShowError" class="form-text text-danger"
+                 *ngIf="!hourShow.valid && (hourShow.dirty || hourShow.touched)">
+              <div [hidden]="!hourShow.errors.required">
+                Vui lòng chọn xuất chiếu.
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-xl-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="text-center mt-xl-5">
+        <button class="btn btn-primary mr-xl-2" disabled>Đặt vé</button>
+        <button class="btn btn-secondary">Quay lại</button>
+      </div>
+
+    </div>
+  </div>
+</div>
