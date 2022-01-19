@@ -1,0 +1,186 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2">
+      <!--      <app-left-side-bar></app-left-side-bar>-->
+    </div>
+    <div class="col-lg-10">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <h2 class="text-center mt-4">Sửa tài khoản thành viên</h2>
+          <form [formGroup]="userForm" (ngSubmit)="submit()">
+            <div class="form-group row mb-3">
+              <label class="col-lg-3 col-form-label" for="username">Tài khoản</label>
+              <div class="col-lg-9">
+                <input type="text" id="username" disabled class="form-control"
+                       formControlName="username">
+              </div>
+            </div>
+            <div class="form-group row mb-3 ">
+              <label class="col-lg-3 col-form-label" for="name">Họ tên<span
+                style="color: red">(*)</span></label>
+              <div class="col-lg-9">
+                <input type="text" id="name" class="form-control" formControlName="name">
+                <div *ngIf="!name.valid && (name.dirty || name.touched)">
+                  <div style="color: red" [hidden]="!name.errors.required">Vui lòng nhập họ và tên.</div>
+                  <div style="color: red" [hidden]="!name.errors.pattern">Tên không được chứa kí tự số hoặc kí tự đặc
+                    biệt.
+                  </div>
+                  <div style="color: red" [hidden]="!name.errors.minlength">Tên tối thiểu có 2 kí tự.</div>
+                  <div style="color: red" [hidden]="!name.errors.maxlength">Tên tối đa có 40 kí tự.</div>
+                </div>
+                <div *ngIf="!checkerr">
+                  <div style="color: red" *ngFor="let s of errorDB">
+                    <div *ngIf="s.field == 'name' ">
+                      <div style="color: red">{{s.defaultMessage}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row mb-3 ">
+              <label class="col-lg-3 col-form-label" for="password">Mật khẩu<span
+                style="color: red">(*)</span></label>
+              <div class="col-lg-9">
+                <input type="password" id="password" class="form-control" formControlName="password">
+                <div *ngIf="!password.valid && (password.dirty|| password.touched)">
+                  <div style="color: red" [hidden]="!password.errors.required">
+                    Vui lòng nhập mật khẩu.
+                  </div>
+                </div>
+                <div *ngIf="!checkerr">
+                  <div style="color: red" *ngFor="let s of errorDB">
+                    <div *ngIf="s.field == 'password' ">
+                      <div style="color: red">{{s.defaultMessage}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row mb-3 ">
+              <label class="col-lg-3 col-form-label" for="birthday">Ngày sinh<span
+                style="color: red">(*)</span></label>
+              <div class="col-lg-9">
+                <input type="text" id="birthday" class="form-control" formControlName="birthday">
+                <div *ngIf="!birthday.valid && (birthday.dirty || birthday.touched)">
+                  <div style="color: red" [hidden]="!birthday.errors.required">Vui lòng nhập ngày sinh.</div>
+                  <div style="color: red" [hidden]="!birthday.errors.pattern">Ngày sinh phải đúng định dạng:
+                    mm-dd-yyyy!.
+                  </div>
+                </div>
+                <div *ngIf="!checkerr">
+                  <div style="color: red" *ngFor="let s of errorDB">
+                    <div *ngIf="s.field == 'birthday' ">
+                      <div style="color: red">{{s.defaultMessage}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row mb-3 ">
+              <label class="col-lg-3 col-form-label" for="gender">Giới tính<span
+                style="color: red">(*)</span></label>
+              <div class="col-lg-9">
+                <input type="radio" id="male" name="gender" value="1" class="radio">
+                <label for="male" class="gender">Nam</label><br>
+                <div style="position: absolute; left: 80px; top: 2px">
+                  <input type="radio" id="female" name="gender" value="0" class="radio">
+                  <label for="female" class="gender">Nữ</label><br>
+                </div>
+                <div *ngIf="!gender.valid && (gender.dirty || gender.touched)">
+                  <div style="color: red" [hidden]="!gender.errors.required">Vui lòng chọn giới tính.</div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row mb-3 ">
+              <label class="col-lg-3 col-form-label" for="email">Email<span
+                style="color: red">(*)</span></label>
+              <div class="col-lg-9">
+                <input type="text" id="email" class="form-control" formControlName="email">
+                <div *ngIf="!email.valid && (email.dirty || email.touched)">
+                  <div style="color: red" [hidden]="!email.errors.required">Vui lòng nhập email.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row mb-3 ">
+              <label class="col-lg-3 col-form-label" for="idCard">CMND</label>
+              <div class="col-lg-9">
+                <input type="text" id="idCard" class="form-control" formControlName="idCard" disabled>
+                <!--                <div *ngIf="!idCard.valid && (idCard.dirty || idCard.touched)">-->
+                <!--                  <div style="color: red" [hidden]="!email.errors.required">Vui lòng nhập email.</div>-->
+                <!--                </div>-->
+              </div>
+            </div>
+
+
+            <div class="form-group row mb-3">
+              <label class="col-lg-3 col-form-label" for="phone">Số điện thoại<span
+                style="color: red">(*)</span></label>
+              <div class="col-lg-9">
+                <input type="text" id="phone" class="form-control" formControlName="phone">
+                <div *ngIf="!phone.valid && (phone.dirty || phone.touched)">
+                  <div style="color: red" [hidden]="!phone.errors.required">Vui lòng nhập số điện thoại.</div>
+                  <div style="color: red" [hidden]="!phone.errors.pattern"> Số điện thoại phải đúng định dạng:
+                    090xxxxxxx hoặc
+                    091xxxxxxx.
+                  </div>
+                </div>
+                <div *ngIf="!checkerr">
+                  <div style="color: red" *ngFor="let s of errorDB">
+                    <div *ngIf="s.field == 'phone' ">
+                      <div style="color: red">{{s.defaultMessage}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row mb-3 ">
+              <label class="col-lg-3 col-form-label" for="address">Địa chỉ<span
+                style="color: red">(*)</span></label>
+              <div class="col-lg-9">
+                <input type="text" id="address" class="form-control" formControlName="address">
+                <div *ngIf="!address.valid && (address.dirty || address.touched)">
+                  <div style="color: red" [hidden]="!address.errors.required">Vui lòng nhập địa chỉ.</div>
+                </div>
+              </div>
+            </div>
+
+
+            <!--            <div class="form-group row mb-3">-->
+            <!--              <label class="col-lg-3 col-form-label" for="avartar">Chọn ảnh avatar</label>-->
+            <!--              <div class="col-lg-9">-->
+            <!--                <label>-->
+            <!--                  <img id="output" [src]="urlImg" width="150"-->
+            <!--                       height="150"/>-->
+            <!--                  <input type="file" accept="image/*" onchange="loadFile(event)"-->
+            <!--                         id="avartar" name="myfile"-->
+            <!--                         style="display:none" (change)="showPreview($event)">-->
+            <!--                </label>-->
+            <!--              </div>-->
+            <!--            </div>-->
+
+
+            <div class="form-group row mb-3">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-9">
+                <button type="submit" class="btn btn-primary mr-lg-3" [disabled]="!userForm.valid">Cập nhật
+                </button>
+                <button type="button" class="btn btn-secondary" routerLink="/user/list">Quay lại</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+  </div>
+</div>

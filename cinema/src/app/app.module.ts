@@ -16,6 +16,7 @@ import {
 } from 'angularx-social-login';
 import {authInterceptorProviders} from './helper/auth.interceptor';
 import {UserModule} from './user/user.module';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [

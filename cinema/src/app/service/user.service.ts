@@ -25,24 +25,24 @@ export class UserService {
     const phone = pageUserDTO.phone;
     const page = pageUserDTO.page;
     const size = pageUserDTO.size;
-    return this.http.get<any>(this.API_URL + '/user?code=' + code + '&name=' + name + '&phone='
+    return this.http.get<any>(this.API_URL + '/admin/user?code=' + code + '&name=' + name + '&phone='
       + phone + '&page=' + page + '&size=' + size, this.httpOptions);
   }
 
   getAll(): Observable<User[] | any> {
-    return this.http.get(this.API_URL + '/user/list', this.httpOptions);
+    return this.http.get(this.API_URL + '/admin/user/list', this.httpOptions);
   }
 
   getCode(): (any) {
-    return this.http.get(this.API_URL + '/user/code', this.httpOptions);
+    return this.http.get(this.API_URL + '/admin/user/code', this.httpOptions);
   }
 
   findById(id: number) {
-    return this.http.get(this.API_URL + '/user/' + id, this.httpOptions);
+    return this.http.get(this.API_URL + '/admin/user/' + id, this.httpOptions);
   }
 
   updateUser(user: User) {
-    return this.http.patch(this.API_URL + '/user/update', user, this.httpOptions);
+    return this.http.patch(this.API_URL + '/admin/user/update', user, this.httpOptions);
   }
 
 
