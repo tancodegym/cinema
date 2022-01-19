@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row ">
+    <div class="col-sm-12">
+      <br>
+      <h3 style="text-align: center">Quản lý phim</h3>
+      <hr>
+
+      <nav class="navbar ">
+
+        <form class="form-inline" [formGroup]="searchForm">
+          <input class="form-control mr-sm-2" style="width: 200px" type="search"
+                 placeholder="Tìm kiếm theo tên phim" aria-label="Search" formControlName="name">
+          <button class="btn btn-info my-2 my-sm-0" type="submit" (click)="searchEmployee()">Tìm kiếm</button>
+        </form>
+        <button class="btn btn-info" >Thêm mới phim</button>
+      </nav>
+      <br>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-sm-12">
+      <!--                        <table class="table table-dark">-->
+      <table class="table ">
+        <thead>
+        <tr>
+          <th scope="col">Stt</th>
+          <th scope="col">Phim</th>
+          <th scope="col">Ngày khởi chiếu</th>
+          <th scope="col">Ngày kết thúc</th>
+          <th scope="col">Hãng phim</th>
+          <th scope="col">Thời lượng</th>
+          <th scope="col">Phiên bản</th>
+          <th scope="col" colspan="2">Hành động</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let mov of movieList index as i">
+          <td>{{i + 1}}</td>
+          <td>{{mov.name}}</td>
+          <td>{{mov.startDate}}</td>
+          <td>{{mov.endDate}}</td>
+          <td>{{mov.director}}</td>
+          <td>{{mov.duration}}</td>
+          <td>{{mov.version}}</td>
+          <td style="text-align: center">
+            <button class=" btn-edit btn" style="background: #058af0"><i
+              class="far fa-edit"></i>
+            </button>
+          </td>
+          <td style="text-align: center">
+            <button type="button" class=" btn btn-danger "
+                    data-toggle="modal" data-target="#modalDelete" (click)="getMovieDelete(mov)"><i
+              class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination float-right" >
+        <a href="#">«</a>
+        <a class="active" href="#">1</a>
+        <a  href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">»</a>
+      </div>
+
+
+    </div>
+    <div class="col-sm-12 text-center">
+      <button type="button" class="btn btn-secondary">Quay về</button>
+    </div>
+  </div>
+</div>
+
+
+<!--modal -->
+<div id="modalDelete" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="neon" style="margin: 0">Xóa phim</h3>
+      </div>
+      <div class="modal-body">
+        <h5>Bạn có chắc chắn là muốn xóa phim <span style="color: red">{{nameDelete}}</span>  ?</h5>
+        <!--                <p class="text-warning"><small>Hành động này không thể được hoàn tác.</small></p>-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button data-dismiss="modal" type="button" class="btn btn-danger" (click)="deleteMovie()">Xoá</button>
+      </div>
+    </div>
+  </div>
+</div>
