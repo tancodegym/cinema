@@ -1,27 +1,3 @@
-<!--<div class="row">-->
-<!--  <div class="col-12">-->
-<!--    <section class="vh-200">-->
-<!--      <div class="container-fluid h-custom">-->
-<!--        <div class="row d-flex justify-content-center align-items-center h-100">-->
-<!--          <div class="col-md-9 col-lg-6 col-xl-5">-->
-<!--            <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png"-->
-<!--                 class="img-fluid"-->
-<!--                 alt="Sample image">-->
-<!--          </div>-->
-<!--          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">-->
-
-<!--            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">-->
-<!--              <p class="lead fw-normal mb-0 me-3">Đăng nhập với</p>-->
-<!--              <button type="button" class="btn btn-primary btn-floating mx-1">-->
-<!--                <i class="fab fa-facebook-f"></i>-->
-<!--              </button>-->
-
-<!--              <button type="button" class="btn btn-primary btn-floating mx-1">-->
-<!--                <i class="fab fa-google"></i>-->
-<!--              </button>-->
-
-<!--            </div>-->
-
 <div class="row" style="height: 100px">
   <div class="col-12"></div>
 </div>
@@ -33,95 +9,52 @@
 <div class="row">
   <div class="col-4"></div>
   <div class="col-4">
-<!--    <form [formGroup]="loginForm">-->
-<!--      &lt;!&ndash; Email input &ndash;&gt;-->
-<!--      <div class="form-outline mb-4">-->
-<!--        <input type="text" id="form3Example3" class="form-control form-control-lg"-->
-<!--               name="username" formControlName="username"/>-->
-<!--        <label class="form-label" for="form3Example3">Tên đăng nhập</label>-->
-<!--      </div>-->
+    <form [formGroup]="loginForm">
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="form3Example3" class="form-control"
+               name="username" formControlName="username"/>
+        <label class="form-label" for="form3Example3">Tên đăng nhập</label>
+      </div>
 
-<!--      &lt;!&ndash; Password input &ndash;&gt;-->
-<!--      <div class="form-outline mb-3">-->
-<!--        <input type="text" id="form3Example4" class="form-control form-control-lg"-->
-<!--               name="password" formControlName="password"/>-->
-<!--        <label class="form-label" for="form3Example4">Mật khẩu</label>-->
-<!--      </div>-->
+      <!-- Password input -->
+      <div class="form-outline mb-3">
+        <input type="password" id="form3Example4" class="form-control"
+               name="password" formControlName="password"/>
+        <label class="form-label" for="form3Example4">Mật khẩu</label>
+      </div>
 
-<!--      <div class="d-flex justify-content-between align-items-center">-->
-<!--        &lt;!&ndash; Checkbox &ndash;&gt;-->
-<!--        <div class="form-check mb-0">-->
-<!--          <input formControlName="remember" name="remember-me" type="checkbox" class="form-check-input me-2"-->
-<!--                 id="form2Example3"/>-->
-<!--          <label class="form-check-label" for="form2Example3">-->
-<!--            Ghi nhớ-->
-<!--          </label>-->
-<!--        </div>-->
+      <div class="d-flex justify-content-between align-items-center">
+        <!-- Checkbox -->
+        <div class="form-check mb-0">
+          <input formControlName="remember" name="remember-me" type="checkbox" class="form-check-input me-2"
+                 id="form2Example3"/>
+          <label class="form-check-label" for="form2Example3">
+            Ghi nhớ
+          </label>
+        </div>
 
-<!--      </div>-->
-<!--    </form>-->
+      </div>
+    </form>
     <div class="row">
       <div class="col-12">
-<!--        <button style="width: 100%" type="button" (click)="onSubmit()" class="btn btn-primary">Đăng nhập</button> -->
+        <button style="width: 100%" type="button" (click)="onSubmit()" class="btn btn-primary">Đăng nhập</button>
       </div>
     </div>
     <div class="row text-center" style="margin-top: 5px;">
       <div class="col-12">
         <a type="button" (click)="signInWithFacebook()" class="btn btn-outline-primary"><i class="fab fa-facebook-f"></i> Facebook</a>
         <a  type="button" (click)="signInWithGoogle()" style="margin-left: 15px;" class="btn btn-outline-danger"><i class="fab fa-google"></i> Google</a>
-        <!--        <div class="g-signin2" data-onsuccess="onSignIn"></div>-->
+        <p class="small fw-bold mt-2 pt-1 mb-0">Chưa có tài khoản?
+          <a href="#$$%^!" style="text-decoration: none" class="text-danger">Đăng ký</a><br>
+          <a href="#modelId" style="text-decoration: none" data-toggle="modal" class="test-primary">Quên mật khẩu</a>
+        </p>
       </div>
-      <p class="small fw-bold mt-2 pt-1 mb-0">Chưa có tài khoản?
-        <a href="#!" style="text-decoration: none" class="link-danger">Đăng ký</a><br>
-        <a href="#modelId" style="text-decoration: none" data-bs-toggle="modal" class="link-primary">Quên mật khẩu</a>
-      </p>
+
     </div>
     <div class="col-4"></div>
   </div>
 </div>
-
-<!--            <form [formGroup]="loginForm" >-->
-<!--              &lt;!&ndash; Email input &ndash;&gt;-->
-<!--              <div class="form-outline mb-4">-->
-<!--                <input type="text" id="form3Example3" class="form-control form-control-lg"-->
-<!--                       name="username" formControlName="username"/>-->
-<!--                <label class="form-label" for="form3Example3">Tên đăng nhập</label>-->
-<!--              </div>-->
-
-<!--              &lt;!&ndash; Password input &ndash;&gt;-->
-<!--              <div class="form-outline mb-3">-->
-<!--                <input type="password" id="form3Example4" class="form-control form-control-lg"-->
-<!--                       name="password" formControlName="password"/>-->
-<!--                <label class="form-label" for="form3Example4">Mật khẩu</label>-->
-<!--              </div>-->
-
-<!--              <div class="d-flex justify-content-between align-items-center">-->
-<!--                &lt;!&ndash; Checkbox &ndash;&gt;-->
-<!--                <div class="form-check mb-0">-->
-<!--                  <input formControlName="remember" name="remember-me" type="checkbox" class="form-check-input me-2" id="form2Example3"/>-->
-<!--                  <label class="form-check-label" for="form2Example3">-->
-<!--                    Ghi nhớ-->
-<!--                  </label>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="text-center text-lg-start mt-4 pt-2">-->
-<!--                <button type="button" (click)="onSubmit()" class="btn btn-primary"-->
-<!--                        style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng nhập-->
-<!--                </button>-->
-<!--                <p class="small fw-bold mt-2 pt-1 mb-0">Chưa có tài khoản?-->
-<!--                  <a href="#!" class="link-danger">Đăng ký</a><br>-->
-<!--                  <a href="#modelId" data-bs-toggle="modal" class="link-primary">Quên mật khẩu</a>-->
-<!--                </p>-->
-<!--              </div>-->
-<!--            </form>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--    </section>-->
-<!--  </div>-->
-<!--</div>-->
-
 
 <!-- Modal Quên mật khẩu -->
 <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -134,64 +67,15 @@
       <div class="modal-body">
         <p style="color:darkgrey">Vui lòng cung cấp email đăng nhập, chúng tôi sẽ gửi link kích hoạt cho bạn.
         </p>
-        <input class="form-control" id="email" type="text" placeholder="Email">
+        <input class="form-control" [(ngModel)]="forgotEmail"  id="email" type="text" placeholder="Email">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary">Cấp lại mật khẩu</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" (click)="getPassword()" data-dismiss="modal" class="btn btn-primary">Cấp lại mật khẩu</button>
       </div>
     </div>
   </div>
 </div>
-
-<!--Validate UserName-->
-<!--          <div id="usernameError" class="form-text text-danger"-->
-<!--               *ngIf="!loginForm.controls.username?.valid && (loginForm.controls.username?.dirty)">-->
-<!--            <div [hidden]="!loginForm.controls.username?.errors.required">-->
-<!--              Vui lòng nhập Tên đăng nhập.-->
-<!--            </div>-->
-<!--            <div [hidden]="!loginForm.controls.username?.errors.minlength">-->
-<!--              Tên đăng nhập phải có ít nhất 6 ký tự.-->
-<!--            </div>-->
-<!--            <div [hidden]="!loginForm.controls.username?.errors.maxlength">-->
-<!--              Tên đăng nhập không vượt quá 20 ký tự.-->
-<!--            </div>-->
-<!--            <div [hidden]="!loginForm.controls.username?.errors.pattern">-->
-<!--              Tên đăng nhập phải bao gồm chữ và số.-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--/////////////////////////////////-->
-<!--Validate Mật khẩu-->
-<!--          <div id="passwordError" class="form-text text-danger"-->
-<!--               *ngIf="!loginForm.controls.password?.valid && (loginForm.controls.password?.dirty || loginForm.controls.password?.touched)">-->
-<!--            <div [hidden]="!loginForm.controls.password?.errors.required">-->
-<!--              Vui lòng nhập Mật khẩu.-->
-<!--            </div>-->
-<!--            <div [hidden]="!loginForm.controls.password?.errors.minlength">-->
-<!--              Mật khẩu phải có ít nhất 6 ký tự.-->
-<!--            </div>-->
-<!--            <div [hidden]="!loginForm.controls.password?.errors.maxlength">-->
-<!--              Mật khẩu không vượt quá 20 ký tự.-->
-<!--            </div>-->
-<!--            <div [hidden]="!loginForm.controls.password?.errors.pattern">-->
-<!--              Mật khẩu phải bao gồm chữ hoặc số, không bao gồm các ký tự đặc biệt.-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--Button login FB-->
-<!--<fb:login-button-->
-<!--  scope="public_profile,email"-->
-<!--  onlogin="checkLoginState();">-->
-<!--</fb:login-button>-->
-
-
-<!--Nhận trạng thái đăng nhập gần đây nhất-->
-<!--function checkLoginState() {-->
-<!--FB.getLoginStatus(function(response) {-->
-<!--statusChangeCallback(response);-->
-<!--});-->
-<!--}-->
 <button (click)="signOut()">Sign Out</button>
 <div *ngIf="user">
   <img src="{{user.photoUrl}}" alt="">
