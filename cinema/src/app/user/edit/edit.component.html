@@ -1,185 +1,335 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-2">
-      <!--      <app-left-side-bar></app-left-side-bar>-->
-    </div>
-    <div class="col-lg-10">
-      <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8">
-          <h2 class="text-center mt-4">Sửa tài khoản thành viên</h2>
-          <form [formGroup]="userForm" (ngSubmit)="submit()">
-            <div class="form-group row mb-3">
-              <label class="col-lg-3 col-form-label" for="username">Tài khoản</label>
-              <div class="col-lg-9">
-                <input type="text" id="username" disabled class="form-control"
-                       formControlName="username">
+    <!--    <div class="col-lg-2">-->
+    <!--      <app-left-side-bar></app-left-side-bar>-->
+    <!--    </div>-->
+
+
+    <!--header-->
+    <div class="col-lg-12" style="padding-left: 0">
+      <div class="container" style="width: 100%">
+        <div class="row" style="background-color: ghostwhite; margin-top: 5px">
+          <!--    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-alt-circle-up"></i></button>-->
+          <div class="col-lg-1"></div>
+          <div class="col-lg-3"><a href="#"><img id="logo"
+                                                 src="https://i.imgur.com/OzTNxw7.png"
+                                                 width="100%"></a></div>
+          <div class="col-lg-5" style="display: grid">
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="width: 100%; margin: auto">
+
+                <form class="form-inline">
+
+                  <input class="form-control" placeholder="Tìm tên phim">
+                  <button type="submit" class="btn btn-outline"><i class="fas fa-search"></i></button>
+
+
+                </form>
               </div>
+              <div class="col-lg-2"></div>
             </div>
-            <div class="form-group row mb-3 ">
-              <label class="col-lg-3 col-form-label" for="name">Họ tên<span
-                style="color: red">(*)</span></label>
-              <div class="col-lg-9">
-                <input type="text" id="name" class="form-control" formControlName="name">
-                <div *ngIf="!name.valid && (name.dirty || name.touched)">
-                  <div style="color: red" [hidden]="!name.errors.required">Vui lòng nhập họ và tên.</div>
-                  <div style="color: red" [hidden]="!name.errors.pattern">Tên không được chứa kí tự số hoặc kí tự đặc
-                    biệt.
-                  </div>
-                  <div style="color: red" [hidden]="!name.errors.minlength">Tên tối thiểu có 2 kí tự.</div>
-                  <div style="color: red" [hidden]="!name.errors.maxlength">Tên tối đa có 40 kí tự.</div>
-                </div>
-                <div *ngIf="!checkerr">
-                  <div style="color: red" *ngFor="let s of errorDB">
-                    <div *ngIf="s.field == 'name' ">
-                      <div style="color: red">{{s.defaultMessage}}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row mb-3 ">
-              <label class="col-lg-3 col-form-label" for="password">Mật khẩu<span
-                style="color: red">(*)</span></label>
-              <div class="col-lg-9">
-                <input type="password" id="password" class="form-control" formControlName="password">
-                <div *ngIf="!password.valid && (password.dirty|| password.touched)">
-                  <div style="color: red" [hidden]="!password.errors.required">
-                    Vui lòng nhập mật khẩu.
-                  </div>
-                </div>
-                <div *ngIf="!checkerr">
-                  <div style="color: red" *ngFor="let s of errorDB">
-                    <div *ngIf="s.field == 'password' ">
-                      <div style="color: red">{{s.defaultMessage}}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="form-group row mb-3 ">
-              <label class="col-lg-3 col-form-label" for="birthday">Ngày sinh<span
-                style="color: red">(*)</span></label>
-              <div class="col-lg-9">
-                <input type="text" id="birthday" class="form-control" formControlName="birthday">
-                <div *ngIf="!birthday.valid && (birthday.dirty || birthday.touched)">
-                  <div style="color: red" [hidden]="!birthday.errors.required">Vui lòng nhập ngày sinh.</div>
-                  <div style="color: red" [hidden]="!birthday.errors.pattern">Ngày sinh phải đúng định dạng:
-                    mm-dd-yyyy!.
-                  </div>
-                </div>
-                <div *ngIf="!checkerr">
-                  <div style="color: red" *ngFor="let s of errorDB">
-                    <div *ngIf="s.field == 'birthday' ">
-                      <div style="color: red">{{s.defaultMessage}}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="form-group row mb-3 ">
-              <label class="col-lg-3 col-form-label" for="gender">Giới tính<span
-                style="color: red">(*)</span></label>
-              <div class="col-lg-9">
-                <select name="" id="gender" class="form-control" formControlName="gender">
-                  <option value="" [disabled]="false">Chọn Giới tính</option>
-                  <option selected [value]=1>Nam</option>
-                  <option selected [value]=0>Nữ</option>
-                </select>
-                <div *ngIf="!gender.valid && (gender.dirty || gender.touched)">
-                  <div style="color: red" [hidden]="!gender.errors.required">Vui lòng chọn giới tính.</div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="form-group row mb-3 ">
-              <label class="col-lg-3 col-form-label" for="email">Email<span
-                style="color: red">(*)</span></label>
-              <div class="col-lg-9">
-                <input type="text" id="email" class="form-control" formControlName="email">
-                <div *ngIf="!email.valid && (email.dirty || email.touched)">
-                  <div style="color: red" [hidden]="!email.errors.required">Vui lòng nhập email.</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row mb-3 ">
-              <label class="col-lg-3 col-form-label" for="idCard">CMND</label>
-              <div class="col-lg-9">
-                <input type="text" id="idCard" class="form-control" formControlName="idCard" disabled>
-                <!--                <div *ngIf="!idCard.valid && (idCard.dirty || idCard.touched)">-->
-                <!--                  <div style="color: red" [hidden]="!email.errors.required">Vui lòng nhập email.</div>-->
-                <!--                </div>-->
-              </div>
-            </div>
-
-
-            <div class="form-group row mb-3">
-              <label class="col-lg-3 col-form-label" for="phone">Số điện thoại<span
-                style="color: red">(*)</span></label>
-              <div class="col-lg-9">
-                <input type="text" id="phone" class="form-control" formControlName="phone">
-                <div *ngIf="!phone.valid && (phone.dirty || phone.touched)">
-                  <div style="color: red" [hidden]="!phone.errors.required">Vui lòng nhập số điện thoại.</div>
-                  <div style="color: red" [hidden]="!phone.errors.pattern"> Số điện thoại phải đúng định dạng:
-                    090xxxxxxx hoặc
-                    091xxxxxxx.
-                  </div>
-                </div>
-                <div *ngIf="!checkerr">
-                  <div style="color: red" *ngFor="let s of errorDB">
-                    <div *ngIf="s.field == 'phone' ">
-                      <div style="color: red">{{s.defaultMessage}}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="form-group row mb-3 ">
-              <label class="col-lg-3 col-form-label" for="address">Địa chỉ<span
-                style="color: red">(*)</span></label>
-              <div class="col-lg-9">
-                <input type="text" id="address" class="form-control" formControlName="address">
-                <div *ngIf="!address.valid && (address.dirty || address.touched)">
-                  <div style="color: red" [hidden]="!address.errors.required">Vui lòng nhập địa chỉ.</div>
-                </div>
-              </div>
-            </div>
-
-
-            <!--            <div class="form-group row mb-3">-->
-            <!--              <label class="col-lg-3 col-form-label" for="avartar">Chọn ảnh avatar</label>-->
-            <!--              <div class="col-lg-9">-->
-            <!--                <label>-->
-            <!--                  <img id="output" [src]="urlImg" width="150"-->
-            <!--                       height="150"/>-->
-            <!--                  <input type="file" accept="image/*" onchange="loadFile(event)"-->
-            <!--                         id="avartar" name="myfile"-->
-            <!--                         style="display:none" (change)="showPreview($event)">-->
-            <!--                </label>-->
-            <!--              </div>-->
-            <!--            </div>-->
-
-
-            <div class="form-group row mb-3">
-              <div class="col-lg-3"></div>
-              <div class="col-lg-9">
-                <button type="submit" class="btn btn-primary mr-lg-3" [disabled]="!userForm.valid">Cập nhật
+          </div>
+          <div class="col-lg-3" style="padding: 15px">
+            <div class="row navbar-navInfor" style="background-color: ghostwhite; ">
+              <div class="col-lg-12 " style="float: left">
+                <button class="btn" style="color: #031327 ; width: 100% "
+                        title="Đăng nhập"><i class="fas fa-user-alt"></i>Đăng nhập
                 </button>
-                <button type="button" class="btn btn-secondary" routerLink="/user/list">Quay lại</button>
               </div>
             </div>
-          </form>
+          </div>
         </div>
-        <div class="col-lg-2"></div>
+      </div>
+
+      <div class="row navbar-header" style="background-color: #031327; ">
+        <div class="col-12">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light"
+                 style="background-color: #031327; padding-left: 30px">
+              <button class="navbar-toggler" type="button" data-toggle="collapse"
+                      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                      aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active navLi">
+                    <a class="nav-link text-white" href="#">LỊCH CHIẾU PHIM
+                      <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item active navLi">
+                    <a class="nav-link text-white" href="#">PHIM ĐANG CHIẾU
+                      <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item active navLi">
+                    <a class="nav-link text-white" href="#">PHIM SẮP CHIẾU
+                      <span class="sr-only">(current)</span></a>
+                  </li>
+
+
+                  <li class="nav-item navLi">
+                    <a class="nav-link text-white " href="#"><span>SỰ KIỆN</span></a>
+                  </li>
+                  <li class="nav-item navLi" href="#">
+                    <a class="nav-link text-white">GÓC ĐIỆN ẢNH</a>
+                  </li>
+                  <li class="nav-item navLi">
+                    <a class="nav-link text-white" href="#">HỖ TRỢ</a>
+                  </li>
+                  <li class="nav-item navLi">
+                    <a class="nav-link text-white" href="#">THÀNH VIÊN</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <h2 class="text-center mt-4">Sửa tài khoản thành viên</h2>
+            <form [formGroup]="userForm" (ngSubmit)="submit()">
+              <div class="form-group row mb-3" style="font-weight: bold;font-size: 17px">
+                <label class="col-lg-3 col-form-label" for="username">Tài khoản</label>
+                <div class="col-lg-9">
+                  <input type="text" id="username" disabled class="form-control"
+                         formControlName="username">
+                </div>
+              </div>
+              <div class="form-group row mb-3" style="font-weight: bold;font-size: 17px">
+                <label class="col-lg-3 col-form-label" for="name">Họ tên<span
+                  style="color: red">(*)</span></label>
+                <div class="col-lg-9">
+                  <input type="text" id="name" class="form-control" formControlName="name">
+                  <div *ngIf="!name.valid && (name.dirty || name.touched)">
+                    <div style="color: red" [hidden]="!name.errors.required">Vui lòng nhập họ và tên.</div>
+                    <div style="color: red" [hidden]="!name.errors.pattern">Tên không được chứa kí tự số hoặc kí tự đặc
+                      biệt.
+                    </div>
+                    <div style="color: red" [hidden]="!name.errors.minlength">Tên tối thiểu có 2 kí tự.</div>
+                    <div style="color: red" [hidden]="!name.errors.maxlength">Tên tối đa có 40 kí tự.</div>
+                  </div>
+                  <div *ngIf="!checkerr">
+                    <div style="color: red" *ngFor="let s of errorDB">
+                      <div *ngIf="s.field == 'name' ">
+                        <div style="color: red">{{s.defaultMessage}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row mb-3" style="font-weight: bold;font-size: 17px">
+                <label class="col-lg-3 col-form-label" for="password">Mật khẩu<span
+                  style="color: red">(*)</span></label>
+                <div class="col-lg-9">
+                  <input type="password" id="password" class="form-control" formControlName="password">
+                  <div *ngIf="!password.valid && (password.dirty|| password.touched)">
+                    <div style="color: red" [hidden]="!password.errors.required">
+                      Vui lòng nhập mật khẩu.
+                    </div>
+                  </div>
+                  <div *ngIf="!checkerr">
+                    <div style="color: red" *ngFor="let s of errorDB">
+                      <div *ngIf="s.field == 'password' ">
+                        <div style="color: red">{{s.defaultMessage}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row mb-3" style="font-weight: bold;font-size: 17px">
+                <label class="col-lg-3 col-form-label" for="birthday">Ngày sinh<span
+                  style="color: red">(*)</span></label>
+                <div class="col-lg-9">
+                  <input type="text" id="birthday" class="form-control" formControlName="birthday">
+                  <div *ngIf="!birthday.valid && (birthday.dirty || birthday.touched)">
+                    <div style="color: red" [hidden]="!birthday.errors.required">Vui lòng nhập ngày sinh.</div>
+                    <div style="color: red" [hidden]="!birthday.errors.pattern">Ngày sinh phải đúng định dạng:
+                      mm-dd-yyyy!.
+                    </div>
+                  </div>
+                  <div *ngIf="!checkerr">
+                    <div style="color: red" *ngFor="let s of errorDB">
+                      <div *ngIf="s.field == 'birthday' ">
+                        <div style="color: red">{{s.defaultMessage}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row mb-3" style="font-weight: bold;font-size: 17px">
+                <label class="col-lg-3 col-form-label" for="gender">Giới tính<span
+                  style="color: red">(*)</span></label>
+                <div class="col-lg-9">
+                  <select name="" id="gender" class="form-control" formControlName="gender">
+                    <option value="" [disabled]="false">Chọn Giới tính</option>
+                    <option selected [value]=1>Nam</option>
+                    <option selected [value]=0>Nữ</option>
+                  </select>
+                  <div *ngIf="!gender.valid && (gender.dirty || gender.touched)">
+                    <div style="color: red" [hidden]="!gender.errors.required">Vui lòng chọn giới tính.</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row mb-3" style="font-weight: bold;font-size: 17px">
+                <label class="col-lg-3 col-form-label" for="email">Email<span
+                  style="color: red">(*)</span></label>
+                <div class="col-lg-9">
+                  <input type="text" id="email" class="form-control" formControlName="email">
+                  <div *ngIf="!email.valid && (email.dirty || email.touched)">
+                    <div style="color: red" [hidden]="!email.errors.required">Vui lòng nhập email.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3" style="font-weight: bold;font-size: 17px">
+                <label class="col-lg-3 col-form-label" for="idCard">CMND</label>
+                <div class="col-lg-9">
+                  <input type="text" id="idCard" class="form-control" formControlName="idCard" disabled>
+                  <!--                <div *ngIf="!idCard.valid && (idCard.dirty || idCard.touched)">-->
+                  <!--                  <div style="color: red" [hidden]="!email.errors.required">Vui lòng nhập email.</div>-->
+                  <!--                </div>-->
+                </div>
+              </div>
+
+
+              <div class="form-group row mb-3" style="font-weight: bold;font-size: 17px">
+                <label class="col-lg-3 col-form-label" for="phone">Số điện thoại<span
+                  style="color: red">(*)</span></label>
+                <div class="col-lg-9">
+                  <input type="text" id="phone" class="form-control" formControlName="phone">
+                  <div *ngIf="!phone.valid && (phone.dirty || phone.touched)">
+                    <div style="color: red" [hidden]="!phone.errors.required">Vui lòng nhập số điện thoại.</div>
+                    <div style="color: red" [hidden]="!phone.errors.pattern"> Số điện thoại phải đúng định dạng:
+                      090xxxxxxx hoặc
+                      091xxxxxxx.
+                    </div>
+                  </div>
+                  <div *ngIf="!checkerr">
+                    <div style="color: red" *ngFor="let s of errorDB">
+                      <div *ngIf="s.field == 'phone' ">
+                        <div style="color: red">{{s.defaultMessage}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row mb-3" style="font-weight: bold;font-size: 17px">
+                <label class="col-lg-3 col-form-label" for="address">Địa chỉ<span
+                  style="color: red">(*)</span></label>
+                <div class="col-lg-9">
+                  <input type="text" id="address" class="form-control" formControlName="address">
+                  <div *ngIf="!address.valid && (address.dirty || address.touched)">
+                    <div style="color: red" [hidden]="!address.errors.required">Vui lòng nhập địa chỉ.</div>
+                  </div>
+                </div>
+              </div>
+
+
+              <!--            <div class="form-group row mb-3">-->
+              <!--              <label class="col-lg-3 col-form-label" for="avartar">Chọn ảnh avatar</label>-->
+              <!--              <div class="col-lg-9">-->
+              <!--                <label>-->
+              <!--                  <img id="output" [src]="urlImg" width="150"-->
+              <!--                       height="150"/>-->
+              <!--                  <input type="file" accept="image/*" onchange="loadFile(event)"-->
+              <!--                         id="avartar" name="myfile"-->
+              <!--                         style="display:none" (change)="showPreview($event)">-->
+              <!--                </label>-->
+              <!--              </div>-->
+              <!--            </div>-->
+
+
+              <div class="form-group row mb-3">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-9">
+                  <button type="submit" class="btn btn-primary mr-lg-3" [disabled]="!userForm.valid">Cập nhật
+                  </button>
+                  <button type="button" class="btn btn-secondary" routerLink="/user/list">Quay lại</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-2"></div>
+        </div>
       </div>
     </div>
+
+
+    <!--footer-->
+    <div class="container-fluid" style="width: 100%;" id="footer">
+      <div class="row footer" style="background-color: #031327; font-size: 12px; margin-top: 5px">
+        <div class="col-lg-4" style="text-align: justify; padding-left: 100px ">
+          <span style="font-weight: bold; color: white; margin-bottom: 5%"> C0721G1 MOVIE</span>
+          <br>
+          <br>
+          <span style="color: white">
+           C0721G1 MOVIE trân trọng giá trị của sự kết nối và đề cao trải nghiệm của khách hàng. Chúng tôi được truyền cảm hứng và sẽ lan tỏa cảm hứng đó đến khán giả của mình thông qua những thước phim tuyệt phẩm và chất lượng phục vụ chu đáo.
+        </span></div>
+        <div class="col-lg-4" style="text-align: justify;color: white">
+          <span style="font-weight: bold;">LIÊN HỆ:</span>
+          <br>
+          <br>
+          <span style="font-weight: bold;">Trụ sở:</span>
+          <span>Căn hộ TT01.23, dự án Hải Đăng city, phường Mỹ Đình 2, quận Nam Từ Liêm, thành phố Hà Nội, Việt Nam</span>
+          <br>
+          <span style="font-weight: bold;">Chi nhánh 1:</span>
+          <span>CODEGYM MON City, Hà Nội, Nhà số 23, Lô TT01, Khu đô thị Mon City, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Hà </span>
+          <br>
+          <span style="font-weight: bold;">Chi nhánh 2:</span>
+          <span>CODEGYM HUẾ, Tần 4, toà B trường Đại học Phú Xuân Cơ Sở 1, số 28 Nguyễn Tri Phương, phường Phú Xuân, TP. </span>
+          <br>
+          <span style="font-weight: bold;">Chi nhánh 3:</span>
+          <span>CODEGYM ĐÀ NẴNG, Tầng 10, 295 Nguyễn Tất Thành, Phường Thanh Bình, Quận Hải Châu, TP. Đà Nẵng</span>
+          <br>
+          <span style="font-weight: bold;">Hotline:</span>
+          <span>0913379559</span>
+          <br>
+          <span style="font-weight: bold;">Điện thoại:</span>
+          <span>023.66.517.021</span>
+          <br>
+          <span style="font-weight: bold;">Email:</span>
+          <span>info@codegym.vn</span>
+        </div>
+        <div class="col-lg-4" style="text-align: justify;">
+          <span style="font-weight: bold;color: white ">THÔNG TIN CÔNG TY</span>
+          <br>
+          <br>
+          <span><a style="color: white" href="#">Công ty TNHH Codegym</a></span>
+          <br>
+          <span><a style="color: white" href="#">Giấy CNĐKKD: 0400668112 - Ngày cấp: 05/11/2008. Đăng ký thay đổi lần thứ 11 ngày 21/12/2016</a></span>
+          <br>
+          <span><a style="color: white" href="#">Cơ quan cấp: Phòng Đăng ký kinh doanh - Sở kế hoạch và đầu tư Thành phố Đà Nẵng</a></span>
+          <br>
+          <span><a style="color: white" href="#">Địa chỉ đăng ký kinh doanh: Tầng 10, 295 Nguyễn Tất Thành, Phường Thanh Bình, Quận Hải Châu, TP. Đà Nẵng, Việt Nam.</a></span>
+        </div>
+      </div>
+      <div class="row" id="copyright">
+        <div class="col-lg-4" style="padding-left: 0px">
+          <span>COPYRIGHT<i class="fa fa-copyright" aria-hidden="true">2021 CODEGYM.VN</i></span></div>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.google.com/"><i class="fab fa-google-plus-g"></i></a>
+          <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>

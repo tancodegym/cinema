@@ -6,10 +6,11 @@ import {ListComponent} from './list/list.component';
 
 
 // @ts-ignore
-// import {SharedModule} from '../shared/shared.module';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserRoutingModule} from './user-routing.module';
 import {EditComponent} from './edit/edit.component';
+
 
 
 @NgModule({
@@ -18,12 +19,12 @@ import {EditComponent} from './edit/edit.component';
     ListComponent,
     EditComponent
   ],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    ReactiveFormsModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+    ]
 })
 export class UserModule {
 }
