@@ -85,12 +85,11 @@
               <label class="col-lg-3 col-form-label" for="gender">Giới tính<span
                 style="color: red">(*)</span></label>
               <div class="col-lg-9">
-                <input type="radio" id="male" name="gender" value="1" class="radio">
-                <label for="male" class="gender">Nam</label><br>
-                <div style="position: absolute; left: 80px; top: 2px">
-                  <input type="radio" id="female" name="gender" value="0" class="radio">
-                  <label for="female" class="gender">Nữ</label><br>
-                </div>
+                <select name="" id="gender" class="form-control" formControlName="gender">
+                  <option value="" [disabled]="false">Chọn Giới tính</option>
+                  <option selected [value]=1>Nam</option>
+                  <option selected [value]=0>Nữ</option>
+                </select>
                 <div *ngIf="!gender.valid && (gender.dirty || gender.touched)">
                   <div style="color: red" [hidden]="!gender.errors.required">Vui lòng chọn giới tính.</div>
                 </div>
