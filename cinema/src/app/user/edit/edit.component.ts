@@ -44,10 +44,9 @@ export class EditComponent implements OnInit {
     // ('^[a-zA-Z\'-\'\\sáàảãạăâắằấầặẵẫậéèẻ ẽẹếềểễệóêòỏõọôốồổỗộ ơớờởỡợíìỉĩịđùúủũụưứ� �ửữựÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠ ƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼ� ' +
     //   '��ỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞ ỠỢỤỨỪỬỮỰỲỴÝỶỸửữựỵ ỷỹ]*$'), Validators.maxLength(30)])),
 
-    // name: new FormControl('', Validators.compose([Validators.required, Validators.pattern
-    // ('(\p{L}+[\p{L}\s]*)'), Validators.maxLength(40)])),
-
     name: new FormControl('', Validators.compose([Validators.required])),
+
+    // name: new FormControl('', Validators.compose([Validators.required])),
 
     birthday: new FormControl('', Validators.compose([Validators.required, Validators.pattern
     ('^(?:0[1-9]|1[012])[-/.](?:0[1-9]|[12][0-9]|3[01])[-/.](?:19\\d{2}|20\\d{2})$'), this.checkDateOfBirth])),

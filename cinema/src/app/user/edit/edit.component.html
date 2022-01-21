@@ -112,7 +112,7 @@
                       biệt.
                     </div>
                     <div style="color: red" [hidden]="!name.errors.minlength">Tên tối thiểu có 2 kí tự.</div>
-                    <div style="color: red" [hidden]="!name.errors.maxlength">Tên tối đa có 40 kí tự.</div>
+                    <div style="color: red" [hidden]="!name.errors.maxlength">Tên tối đa có 30 kí tự.</div>
                   </div>
                   <div *ngIf="!checkerr">
                     <div style="color: red" *ngFor="let s of errorDB">
@@ -152,7 +152,7 @@
                   <div *ngIf="!birthday.valid && (birthday.dirty || birthday.touched)">
                     <div style="color: red" [hidden]="!birthday.errors.required">Vui lòng nhập ngày sinh.</div>
                     <div style="color: red" [hidden]="!birthday.errors.pattern">Ngày sinh phải đúng định dạng:
-                      mm-dd-yyyy!.
+                      mm/dd/yyyy!.
                     </div>
                   </div>
                   <div *ngIf="!checkerr">
