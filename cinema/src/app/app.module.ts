@@ -15,6 +15,9 @@ import {
   SocialLoginModule
 } from "angularx-social-login";
 import {authInterceptorProviders} from "./helper/auth.interceptor";
+import {UserModule} from "./user/user.module";
+import {AngularFireModule} from "@angular/fire";
+import {environment} from "../environments/environment";
 @NgModule({
   declarations: [
     AppComponent
@@ -33,7 +36,9 @@ import {authInterceptorProviders} from "./helper/auth.interceptor";
     FormsModule,
     HttpClientModule,
     // Social Login Service
-    SocialLoginModule
+    SocialLoginModule,
+    UserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [
     // provider service TanTN//

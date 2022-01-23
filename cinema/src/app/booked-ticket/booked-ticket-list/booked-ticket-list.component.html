@@ -1,0 +1,62 @@
+<div class="container-fluid"
+     style="background-image: url(https://s3.cloud.cmctelecom.vn/tinhte1/2018/09/4429707_123.jpg); background-size: cover; padding: 0"
+>
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="nav-side-menu" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5Pl8UkM2v__cbAT-ESKjmR49NUO_RZ25nsg&usqp=CAU); background-size: cover; color: white">
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+          <ul id="menu-content" class="menu-content collapse out">
+            <li  style="text-align: center">
+              <img id="output" src="https://i.imgur.com/7Vtlcpx.png" width="150"
+                   height="150"/>
+              <p><span class="badge badge-pill badge-info">Dương Nhật Sang</span></p>
+              <p><i class="fas fa-coins"></i> Điểm tích lũy: 120</p>
+              <button type="button" class="btn btn-primary" style="margin-bottom: 2%"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+            </li>
+            <li data-toggle="collapse" data-target="#support" class="collapsed image">
+              <a routerLink="/system/maintenance"><i class="fas fa-user-alt"></i> Thông tin tài khoản </a>
+            </li>
+            <li data-toggle="collapse" data-target="#support" class="collapsed image">
+              <a routerLink="/system/maintenance"><i class="fas fa-notes-medical"></i> Lịch sử </a>
+            </li>
+            <li data-toggle="collapse" data-target="#support" class="collapsed image">
+              <a routerLink="/system/maintenance"><i class="fas fa-tag"></i> Vé đã đặt </a>
+            </li>
+            <li data-toggle="collapse" data-target="#support" class="collapsed image">
+              <a routerLink="/system/maintenance"><i class="fas fa-tag"></i> Vé đã hủy </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-10" style="padding-left: 0; margin-top: 5%">
+      <h2 style="text-align: center; color: white">VÉ ĐÃ ĐẶT</h2>
+      <table class="table table-hover table-striped" style="color:white;">
+        <thead>
+        <tr class="text-center" style="background: #f26b38" >
+          <th scope="col">#</th>
+          <th scope="col">Tên phim</th>
+          <th scope="col">Ngày đặt</th>
+          <th scope="col">Tổng tiền</th>
+          <th scope="col">Trạng thái</th>
+        </tr>
+        </thead>
+        <tbody   >
+        <tr *ngFor="let ticket of bookedTicketList index as i" class="text-center">
+          <td>{{i + 1}}</td>
+          <td>{{ticket.movieName}}</td>
+          <td>{{ticket.dayBooked}}</td>
+          <td>{{ticket.dayShow}}</td>
+          <td><span *ngIf="ticket.status == 1" class="badge badge-pill badge-success">Đã nhận vé</span>
+            <span *ngIf="ticket.status == 0" class="badge badge-pill badge-primary">Đợi nhận vé</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
+
