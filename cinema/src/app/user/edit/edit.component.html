@@ -107,7 +107,7 @@
                 <div class="col-lg-9">
                   <input type="text" id="name" class="form-control" formControlName="name">
                   <div *ngIf="!name.valid && (name.dirty || name.touched)">
-                    <div style="color: red" [hidden]="!name.errors.required">Vui lòng nhập họ và tên.</div>
+                    <div style="color: red" [hidden]="!name.errors.required">Họ tên không được để trống</div>
                     <div style="color: red" [hidden]="!name.errors.pattern">Tên không được chứa kí tự số hoặc kí tự đặc
                       biệt.
                     </div>
@@ -130,7 +130,7 @@
                   <input type="password" id="password" class="form-control" formControlName="password">
                   <div *ngIf="!password.valid && (password.dirty|| password.touched)">
                     <div style="color: red" [hidden]="!password.errors.required">
-                      Vui lòng nhập mật khẩu.
+                      Mật khẩu không được để trống
                     </div>
                   </div>
                   <div *ngIf="!checkerr">
@@ -150,7 +150,7 @@
                 <div class="col-lg-9">
                   <input type="text" id="birthday" class="form-control" formControlName="birthday">
                   <div *ngIf="!birthday.valid && (birthday.dirty || birthday.touched)">
-                    <div style="color: red" [hidden]="!birthday.errors.required">Vui lòng nhập ngày sinh.</div>
+                    <div style="color: red" [hidden]="!birthday.errors.required">Ngày sinh không được để trống</div>
                     <div style="color: red" [hidden]="!birthday.errors.pattern">Ngày sinh phải đúng định dạng:
                       mm/dd/yyyy!.
                     </div>
@@ -176,7 +176,7 @@
                     <option selected [value]=0>Nữ</option>
                   </select>
                   <div *ngIf="!gender.valid && (gender.dirty || gender.touched)">
-                    <div style="color: red" [hidden]="!gender.errors.required">Vui lòng chọn giới tính.</div>
+                    <div style="color: red" [hidden]="!gender.errors.required">Giới tính không được để trống</div>
                   </div>
                 </div>
               </div>
@@ -188,7 +188,7 @@
                 <div class="col-lg-9">
                   <input type="text" id="email" class="form-control" formControlName="email">
                   <div *ngIf="!email.valid && (email.dirty || email.touched)">
-                    <div style="color: red" [hidden]="!email.errors.required">Vui lòng nhập email.</div>
+                    <div style="color: red" [hidden]="!email.errors.required">Email không được để trống</div>
                   </div>
                 </div>
               </div>
@@ -210,7 +210,7 @@
                 <div class="col-lg-9">
                   <input type="text" id="phone" class="form-control" formControlName="phone">
                   <div *ngIf="!phone.valid && (phone.dirty || phone.touched)">
-                    <div style="color: red" [hidden]="!phone.errors.required">Vui lòng nhập số điện thoại.</div>
+                    <div style="color: red" [hidden]="!phone.errors.required">Số điện thoại không được để trống</div>
                     <div style="color: red" [hidden]="!phone.errors.pattern"> Số điện thoại phải đúng định dạng:
                       090xxxxxxx hoặc
                       091xxxxxxx.
@@ -233,7 +233,7 @@
                 <div class="col-lg-9">
                   <input type="text" id="address" class="form-control" formControlName="address">
                   <div *ngIf="!address.valid && (address.dirty || address.touched)">
-                    <div style="color: red" [hidden]="!address.errors.required">Vui lòng nhập địa chỉ.</div>
+                    <div style="color: red" [hidden]="!address.errors.required">Địa chỉ không được để trống</div>
                   </div>
                 </div>
               </div>
@@ -256,9 +256,9 @@
               <div class="form-group row mb-3">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-9">
-                  <button type="submit" class="btn btn-primary mr-lg-3" [disabled]="!userForm.valid">Cập nhật
+                  <button type="submit" class="btn btn-primary mr-lg-3" [disabled]="!userForm.valid">Sửa
                   </button>
-                  <button type="button" class="btn btn-secondary" routerLink="/user/list">Quay lại</button>
+                  <button type="button" class="btn btn-secondary" routerLink="/user/list">Trở về</button>
                 </div>
               </div>
             </form>

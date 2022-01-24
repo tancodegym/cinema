@@ -14,4 +14,5 @@ export class PageUserDTO {
   address: string;
   page: number;
   size: number;
+  totalPages: any;
 }

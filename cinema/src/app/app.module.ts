@@ -7,6 +7,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+
 import {CookieService} from 'ngx-cookie-service';
 import {
   FacebookLoginProvider,
